@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新国标移动电源方案 | 佳联芯科技</title>
-<meta name="description" content="深圳佳联芯科技技术博客 — 新国标移动电源方案">
+<title>GB 47372-2026新国标下，移动电源PCBA方案怎么选？ | 佳联芯科技</title>
+<meta name="description" content="佳联芯科技技术博客：GB 47372-2026新国标下，移动电源PCBA方案怎么选？">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <header>
   <div class="container">
-    <div class="logo"><span class="logo-icon">⚡</span><span class="logo-text">佳联芯 <small>Best Link Chip</small></span><br><small style="font-size:11px;color:#64748b">专注·专业·专一·杰理16年</small></div>
+    <div class="logo"><span class="logo-icon">⚡</span><span class="logo-text">佳联芯 <small>Best Link Chip</small></span></div>
     <nav>
       <a href="../index.html">首页</a>
       <a href="../solutions.html">方案中心</a>
@@ -20,245 +20,348 @@
     </nav>
   </div>
 </header>
-<article class="container" style="max-width:800px;margin:40px auto">
-<h1>GB 47372-2026新国标下，移动电源PCBA方案怎么选？</h1>
 
-<p>> 深圳佳联芯科技 | 专注、专业、专一、杰理16年</p>
-<p>></p>
-<p>> 服务品牌：HONOR / 小米 / 联想 / 传音 / 飞利浦 / 摩托罗拉 / 安克 / 韶音 / JVC / 松下 / 华米 / QCY / IKF / 美团</p>
-<p>></p>
-<p>> 关键词：GB 47372-2026、新国标移动电源、充电宝PCBA、杰理方案</p>
-
+<section>
+  <div class="container">
+    <article>
+      <h1>GB 47372-2026新国标下，移动电源PCBA方案怎么选？</h1>
+      <div class="meta">深圳佳联芯科技 · 发布于 2026-06-22</div>
+      <p>><br>
+></p>
 <hr>
-
 <h2>前言</h2>
-
 <p>GB 47372-2026《便携式数字设备用移动电源安全技术规范》已于2026年发布，<strong>2027年4月1日起强制执行</strong>。</p>
-
 <p>这意味着：所有在中国市场销售的移动电源、充电宝，必须在2027年4月1日前通过新国标认证。不符合标准的产品将被禁止销售。</p>
-
 <p>对方案商和品牌方来说，这件事不只是"多做一个认证"——它决定了你现在选的PCBA方案<strong>未来一年能不能卖</strong>。</p>
-
 <p>本文从PCBA方案商的角度，拆解新国标的核心要求、技术应对方案、以及三条不同价位的合规路径。</p>
-
 <hr>
-
 <h2>一、GB 47372-2026 五大核心要求</h2>
-
 <p>我先把标准文件中的关键技术条款翻译成"做方案的人能听懂的话"：</p>
-
-<p>| 条款 | 原文要求 | 对PCBA方案意味着什么 |</p>
-<p>|------|---------|-------------------|</p>
-<p>| <strong>电芯针刺试验</strong> | 电芯被刺穿后不起火、不爆炸 | 必须选用通过针刺测试的电芯，成本+10-20% |</p>
-<p>| <strong>循环老化测试</strong> | 500次充放电循环后容量≥80% | 充放电管理芯片要有精准的电量计和老化补偿算法 |</p>
-<p>| <strong>唯一编码</strong> | 每台移动电源必须有唯一的可追溯编码 | 主控芯片需支持写入和读取唯一ID（Flash/EEPROM） |</p>
-<p>| <strong>智能热管理</strong> | 充电温度不超过60℃，放电不超过70℃ | 必须有NTC温度检测+BMS过温保护，不能省这个钱 |</p>
-<p>| <strong>禁止梯次利用电芯</strong> | 不能用汽车拆下来的旧电芯 | 这条主要管供应链，不是技术问题，但要留好电芯来源凭证 |</p>
-
-<strong>总结一句话：新国标让移动电源从"能充就行"变成了"安全可追溯的储能设备"。</strong>
-
+<table class="data-table">
+<thead><tr>
+<th>条款</th>
+<th>原文要求</th>
+<th>对PCBA方案意味着什么</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>电芯针刺试验</strong></td>
+<td>电芯被刺穿后不起火、不爆炸</td>
+<td>必须选用通过针刺测试的电芯，成本+10-20%</td>
+</tr>
+<tr>
+<td><strong>循环老化测试</strong></td>
+<td>500次充放电循环后容量≥80%</td>
+<td>充放电管理芯片要有精准的电量计和老化补偿算法</td>
+</tr>
+<tr>
+<td><strong>唯一编码</strong></td>
+<td>每台移动电源必须有唯一的可追溯编码</td>
+<td>主控芯片需支持写入和读取唯一ID（Flash/EEPROM）</td>
+</tr>
+<tr>
+<td><strong>智能热管理</strong></td>
+<td>充电温度不超过60℃，放电不超过70℃</td>
+<td>必须有NTC温度检测+BMS过温保护，不能省这个钱</td>
+</tr>
+<tr>
+<td><strong>禁止梯次利用电芯</strong></td>
+<td>不能用汽车拆下来的旧电芯</td>
+<td>这条主要管供应链，不是技术问题，但要留好电芯来源凭证</td>
+</tr>
+</tbody>
+</table>
+<ul>
+</ul>
 <hr>
-
 <h2>二、新国标对PCBA方案的三个硬性要求</h2>
-
-<h3>2.1 充放电管理芯片——必须带完整的BMS保护</h3>
-
+<h3>2.1 电源管理与保护——按功率段配套，杰理负责信息交互层</h3>
 <p>新国标前的很多低价充电宝，用的是基础充电IC（如ETA1038），只做充电，不做电池管理。</p>
-
-<strong>现在不行了。</strong>
-
-<p>新国标要求的过充保护、过放保护、过温保护、短路保护，必须由一颗正经的BMS电源管理芯片来管。</p>
-
-<strong>推荐方案：</strong>
 <ul>
-<li><strong>英集芯IP53xx系列</strong>（IP5356H_G3、IP5381_G2、IP5385P）：国内移动电源方案使用最广的电源管理IC，新国标合规</li>
-<li><strong>智融SW6236H</strong>：双路独立升降压，效率高，支持电量计</li>
 </ul>
-
+<p>新国标要求的过充保护、过放保护、过温保护、短路保护，必须在硬件层面完整实现。佳联芯对外推荐的核心不是某个第三方电源芯片，而是<strong>杰理主控负责显示、蓝牙APP、唯一编码、产线写入和状态交互</strong>，电源管理/保护器件按功率段、认证要求和客户供应链配套。</p>
+<ul>
+  <li>杰理芯片负责智能显示、BLE APP、唯一编码、异常状态读取和OTA等交互层能力</li>
+  <li>充放电、电芯保护、NTC温控等电源安全部分按项目需求配套</li>
+  <li>对外沟通只推荐杰理平台，不推荐其他芯片品牌</li>
+</ul>
 <h3>2.2 唯一编码——要有地方存</h3>
-
 <p>每台移动电源的PCB上需要存储一个唯一ID。这个ID可以通过蓝牙APP读取（给消费者看），也可以通过产线工具写入（给工厂用）。</p>
-
-<strong>实现方式：</strong>
 <ul>
-<li>利用主控芯片的Flash区域存储唯一编码</li>
-<li>通过BLE（低功耗蓝牙）让手机APP读取</li>
-<li>产线烧录工具写入，每台一个号</li>
+  <li>利用主控芯片的Flash区域存储唯一编码</li>
+  <li>通过BLE（低功耗蓝牙）让手机APP读取</li>
+  <li>产线烧录工具写入，每台一个号</li>
 </ul>
-
 <h3>2.3 温度监控——NTC必须留</h3>
-
 <p>很多老方案为了省钱，板子上没有NTC温敏电阻。新国标下这是红线。</p>
-
-<strong>实现方式：</strong>
 <ul>
-<li>电池端 + PCB端各放一颗NTC</li>
-<li>BMS芯片实时读取温度数据</li>
-<li>超过阈值自动降功率或切断输出</li>
+  <li>电池端 + PCB端各放一颗NTC</li>
+  <li>BMS芯片实时读取温度数据</li>
+  <li>超过阈值自动降功率或切断输出</li>
 </ul>
-
 <hr>
-
-<h2>三、三条合规PCBA路线</h2>
-
+<h2>三、三条杰理PCBA路线</h2>
 <p>根据你的产品定位和预算，有三条路径可以满足新国标：</p>
-
 <h3>路线一：入门合规（零售¥59-79）</h3>
-
-<strong>方案</strong>：英集芯IP5356H_G3 单芯片方案
-
-<p>| 硬件 | 型号 | 功能 |</p>
-<p>|------|------|------|</p>
-<p>| 电源管理 | IP5356H_G3 | 22.5W双向快充，集成BMS |</p>
-<p>| 显示 | LED数码管 | 显示电量% |</p>
-<p>| 编码 | 芯片内置Flash | 存储唯一ID |</p>
-<p>| 温控 | NTC × 2 | 电池+PCB温度监控 |</p>
-
 <ul>
-<li>PCBA成本：约¥8</li>
-<li>整机BOM：约¥18-22</li>
-<li>零售建议：¥59-79</li>
-<li>优势：最简单、最成熟、最快出货</li>
 </ul>
-
-<strong>适合：亚马逊/东南亚/拉美走量产品，只要合规不要求花哨功能。</strong>
-
+<table class="data-table">
+<thead><tr>
+<th>硬件</th>
+<th>型号</th>
+<th>功能</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>信息交互主控</td>
+<td>杰理AC242 / AE242A2</td>
+<td>唯一编码、产线写入、基础状态读取</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>LED数码管</td>
+<td>显示电量%</td>
+</tr>
+<tr>
+<td>编码</td>
+<td>杰理主控Flash</td>
+<td>存储唯一ID</td>
+</tr>
+<tr>
+<td>电源管理/保护</td>
+<td>按22.5W项目需求配套</td>
+<td>过充、过放、过温、短路保护</td>
+</tr>
+<tr>
+<td>温控</td>
+<td>NTC × 2</td>
+<td>电池+PCB温度监控</td>
+</tr>
+</tbody>
+</table>
+<ul>
+  <li>PCBA成本：按电芯、功率和认证要求核算</li>
+  <li>整机BOM：按外壳、电芯、屏显和认证要求核算</li>
+  <li>零售建议：¥59-79</li>
+  <li>优势：保留合规数据能力，成本可控，适合走量</li>
+</ul>
 <hr>
-
 <h3>路线二：智能合规（零售¥79-99）</h3>
-
-<strong>方案</strong>：智融SW6236H + AC6328 双芯片方案
-
-<p>| 硬件 | 型号 | 功能 |</p>
-<p>|------|------|------|</p>
-<p>| 电源管理 | SW6236H | 22.5W双路升降压，电量计 |</p>
-<p>| 蓝牙主控 | AC6328 | BLE通信，APP数据透传 |</p>
-<p>| 显示 | LED数码管 | 显示电量% |</p>
-<p>| 编码 | AC6328 Flash | 存储唯一ID+APP读取 |</p>
-<p>| 温控 | NTC × 2 | 电池+PCB温度监控 |</p>
-
 <ul>
-<li>PCBA成本：约¥15</li>
-<li>整机BOM：约¥28-35</li>
-<li>零售建议：¥79-99</li>
-<li>优势：带蓝牙APP，用户可以手机看电量/温度/循环次数</li>
 </ul>
-
-<strong>适合：国内电商、品牌化产品，APP是差异化卖点。</strong>
-
+<table class="data-table">
+<thead><tr>
+<th>硬件</th>
+<th>型号</th>
+<th>功能</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>蓝牙交互主控</td>
+<td>杰理AE333A / AC333A</td>
+<td>BLE通信、APP数据透传、OTA</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>LED数码管</td>
+<td>显示电量%</td>
+</tr>
+<tr>
+<td>编码</td>
+<td>杰理主控Flash</td>
+<td>存储唯一ID+APP读取</td>
+</tr>
+<tr>
+<td>电源管理/保护</td>
+<td>按22.5W项目需求配套</td>
+<td>充放电管理、电芯保护、温控联动</td>
+</tr>
+<tr>
+<td>温控</td>
+<td>NTC × 2</td>
+<td>电池+PCB温度监控</td>
+</tr>
+</tbody>
+</table>
+<ul>
+  <li>PCBA成本：按功能配置核算</li>
+  <li>整机BOM：按电芯、外壳、屏显和认证要求核算</li>
+  <li>零售建议：¥79-99</li>
+  <li>优势：带蓝牙APP，用户可以手机看电量、温度、循环次数和设备状态</li>
+</ul>
 <hr>
-
 <h3>路线三：高端彩屏合规（零售¥99-149）</h3>
-
-<strong>方案</strong>：智融SW6236H + 杰理AC7076A3 + TFT彩屏
-
-<p>| 硬件 | 型号 | 功能 |</p>
-<p>|------|------|------|</p>
-<p>| 电源管理 | SW6236H | 22.5W双路升降压，电量计 |</p>
-<p>| 蓝牙+显示主控 | AC7076A3 | BLE通信 + SPI驱动彩屏 |</p>
-<p>| 显示 | 0.96" TFT LCD | 彩屏显示电量/功率/电压/电流/温度 |</p>
-<p>| 编码 | AC7076A3 Flash | 存储唯一ID+APP读取+屏幕显示 |</p>
-<p>| 温控 | NTC × 2 | 电池+PCB温度监控 |</p>
-
 <ul>
-<li>PCBA成本：约¥22-25</li>
-<li>整机BOM：约¥38-45</li>
-<li>零售建议：¥99-149</li>
-<li>优势：彩屏+APP全功能，高端品牌调性</li>
 </ul>
-
-<strong>适合：国内中高端品牌、跨境电商差异化产品、礼品渠道。</strong>
-
+<table class="data-table">
+<thead><tr>
+<th>硬件</th>
+<th>型号</th>
+<th>功能</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>蓝牙+显示主控</td>
+<td>杰理AE7076A / AC7076A3</td>
+<td>BLE通信 + SPI/MIPI驱动彩屏</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>0.96" TFT LCD</td>
+<td>彩屏显示电量/功率/电压/电流/温度</td>
+</tr>
+<tr>
+<td>编码</td>
+<td>杰理主控Flash</td>
+<td>存储唯一ID+APP读取+屏幕显示</td>
+</tr>
+<tr>
+<td>电源管理/保护</td>
+<td>按项目功率段配套</td>
+<td>充放电管理、电芯保护、温控联动</td>
+</tr>
+<tr>
+<td>温控</td>
+<td>NTC × 2</td>
+<td>电池+PCB温度监控</td>
+</tr>
+</tbody>
+</table>
+<ul>
+  <li>PCBA成本：按屏幕、功率和认证要求核算</li>
+  <li>整机BOM：按电芯、外壳、屏幕和认证要求核算</li>
+  <li>零售建议：¥99-149</li>
+  <li>优势：彩屏+APP全功能，高端品牌调性</li>
+</ul>
 <hr>
-
 <h2>四、三条路线对比</h2>
-
-<p>| 对比项 | 入门合规 | 智能合规 | 高端彩屏 |</p>
-<p>|--------|---------|---------|---------|</p>
-<p>| PCBA成本 | ¥8 | ¥15 | ¥22-25 |</p>
-<p>| 整机成本 | ¥18-22 | ¥28-35 | ¥38-45 |</p>
-<p>| 零售价 | ¥59-79 | ¥79-99 | ¥99-149 |</p>
-<p>| 新国标合规 | ✅ | ✅ | ✅ |</p>
-<p>| 唯一编码 | ✅ 芯片Flash | ✅ APP可读 | ✅ APP+屏幕可读 |</p>
-<p>| 蓝牙APP | ❌ | ✅ | ✅ |</p>
-<p>| 彩屏显示 | ❌ | ❌ | ✅ |</p>
-<p>| 温度监控 | ✅ NTC | ✅ NTC | ✅ NTC |</p>
-<p>| 开发周期 | 1-2周 | 2-3周 | 3-4周 |</p>
-<p>| 适合客户 | 走量型 | 品牌型 | 高端型 |</p>
-
+<table class="data-table">
+<thead><tr>
+<th>对比项</th>
+<th>入门合规</th>
+<th>智能合规</th>
+<th>高端彩屏</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>PCBA成本</td>
+<td>低</td>
+<td>中</td>
+<td>高</td>
+</tr>
+<tr>
+<td>整机成本</td>
+<td>按项目核算</td>
+<td>按项目核算</td>
+<td>按项目核算</td>
+</tr>
+<tr>
+<td>零售价</td>
+<td>¥59-79</td>
+<td>¥79-99</td>
+<td>¥99-149</td>
+</tr>
+<tr>
+<td>新国标合规</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>唯一编码</td>
+<td>✅ 杰理主控Flash</td>
+<td>✅ APP可读</td>
+<td>✅ APP+屏幕可读</td>
+</tr>
+<tr>
+<td>蓝牙APP</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>彩屏显示</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>温度监控</td>
+<td>✅ NTC</td>
+<td>✅ NTC</td>
+<td>✅ NTC</td>
+</tr>
+<tr>
+<td>开发周期</td>
+<td>1-2周</td>
+<td>2-3周</td>
+<td>3-4周</td>
+</tr>
+<tr>
+<td>适合客户</td>
+<td>走量型</td>
+<td>品牌型</td>
+<td>高端型</td>
+</tr>
+</tbody>
+</table>
 <hr>
-
 <h2>五、选型建议：按你的客户类型选</h2>
-
 <h3>如果你是跨境电商卖家</h3>
-
 <ul>
-<li>欧美日市场要求高 → <strong>路线三</strong>（彩屏+APP，用户感知强）</li>
-<li>东南亚/拉美走量 → <strong>路线一</strong>（成本优势，量大）</li>
+  <li>欧美日市场要求高 → <strong>路线三</strong>（彩屏+APP，用户感知强）</li>
+  <li>东南亚/拉美走量 → <strong>路线一</strong>（成本优势，量大）</li>
 </ul>
-
 <h3>如果你是国内品牌方</h3>
-
 <ul>
-<li>电商平台（天猫/京东/拼多多） → <strong>路线二或三</strong>（需要差异化）</li>
-<li>礼品渠道/企业定制 → <strong>路线三</strong>（彩屏加分）</li>
-<li>共享充电宝运营商 → <strong>路线二</strong>（需要APP+BMS数据）</li>
+  <li>电商平台（天猫/京东/拼多多） → <strong>路线二或三</strong>（需要差异化）</li>
+  <li>礼品渠道/企业定制 → <strong>路线三</strong>（彩屏加分）</li>
+  <li>共享充电宝运营商 → <strong>路线二</strong>（需要APP+BMS数据）</li>
 </ul>
-
 <h3>如果你是硬件创业团队</h3>
-
 <ul>
-<li>第一款产品 → <strong>路线二</strong>（稳妥+有卖点）</li>
-<li>预算紧 → <strong>路线一</strong>（先活下来）</li>
+  <li>第一款产品 → <strong>路线二</strong>（稳妥+有卖点）</li>
+  <li>预算紧 → <strong>路线一</strong>（先活下来）</li>
 </ul>
-
 <hr>
-
 <h2>六、一个时间提醒</h2>
-
-<strong>2027年4月1日是强制执行日，不是建议日。</strong>
-
+<ul>
+</ul>
 <p>从现在（2026年6月）到强制执行的倒推时间线：</p>
-
-<p>``<code></p>
-<p>2026年6月   → 方案选型、PCB设计</p>
-<p>2026年7-8月 → 打样、测试、送检</p>
-<p>2026年9-10月 → 认证完成、小批量试产</p>
-<p>2026年11-12月 → 量产备货（赶双11/黑五）</p>
-<p>2027年1-3月  → 渠道铺货</p>
-<p>2027年4月1日 → 强制执行，不合规产品下架</p>
-</code>``
-
-<strong>如果你现在还没开始做新国标方案，时间其实很紧了。</strong>
-
+<p>``<code><br>
+2026年6月   → 方案选型、PCB设计<br>
+2026年7-8月 → 打样、测试、送检<br>
+2026年9-10月 → 认证完成、小批量试产<br>
+2026年11-12月 → 量产备货（赶双11/黑五）<br>
+2027年1-3月  → 渠道铺货<br>
+2027年4月1日 → 强制执行，不合规产品下架<br>
+</code>``</p>
+<ul>
+</ul>
 <hr>
-
 <h2>七、联系我们</h2>
-
 <p>佳联芯科技，专注杰理方案16年，已准备好三条完整的新国标移动电源PCBA方案：</p>
-
 <ul>
-<li>全部通过GB 47372-2026合规预评估</li>
-<li>提供完整的BOM报价 + PCB Layout + SMT贴片</li>
-<li>支持APP定制（Android/iOS）</li>
-<li>唯一编码产线烧录工具免费提供</li>
+  <li>全部通过GB 47372-2026合规预评估</li>
+  <li>提供完整的BOM报价 + PCB Layout + SMT贴片</li>
+  <li>支持APP定制（Android/iOS）</li>
+  <li>唯一编码产线烧录工具免费提供</li>
 </ul>
-
 <p>需要方案报价或技术咨询：</p>
-
 <ul>
-<li>📱 13425156769（大刘）</li>
-<li>📞 0755-27780662</li>
-<li>📧 liuhang@bestlinkchip.com</li>
-<li>🌐 www.bestlinkchip.com</li>
+  <li>📱 13425156769（大刘）</li>
+  <li>📞 0755-27780662</li>
+  <li>📧 liuhang@bestlinkchip.com</li>
+  <li>🌐 www.bestlinkchip.com</li>
+</ul>
+<hr>
+<ul>
 </ul>
 
-<hr>
+    </article>
+  </div>
+</section>
 
-<p>*本文由深圳佳联芯科技原创，2026年6月*</p>
-<p>*如有政策更新以国家标准委最新文件为准*</p>
-
-</article>
 <footer>
   <div class="container">
     <p>深圳佳联芯科技有限公司 | Shenzhen Best Link Chip Technology Co., Ltd.</p>

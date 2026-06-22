@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auracast广播音频完全指南：下一代蓝牙的杀手级应用 | 佳联芯科技</title>
+<meta name="description" content="佳联芯科技技术博客：Auracast广播音频完全指南：下一代蓝牙的杀手级应用">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo"><span class="logo-icon">⚡</span><span class="logo-text">佳联芯 <small>Best Link Chip</small></span></div>
+    <nav>
+      <a href="../index.html">首页</a>
+      <a href="../solutions.html">方案中心</a>
+      <a href="../blog.html">技术博客</a>
+      <a href="../about.html">关于我们</a>
+      <a href="../contact.html">联系合作</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <article>
+      <h1>Auracast广播音频完全指南：下一代蓝牙的杀手级应用</h1>
+      <div class="meta">深圳佳联芯科技 · 发布于 2026-06-22</div>
+      <hr>
+<p># Auracast广播音频完全指南——从技术原理到商业落地</p>
+<img src="配图/01-cover.png" alt="封面图" style="max-width:100%;border-radius:8px;margin:1em 0">
+<p>2026年过去一半，蓝牙音频圈最热的词只有一个：Auracast。</p>
+<p>法兰克福机场用它取代广播喇叭。悉尼歌剧院用它做无障碍辅听。深圳蓝牙亚洲大会现场搭了高铁站、健身房、会议中心三个场景让参会者体验。三星、JBL、声阔的新品已经上了。</p>
+<p>但如果你问一个做产品的——"Auracast到底是个什么东西，我的产品要不要上，芯片方案怎么选？"——能说清楚的人不多。</p>
+<p>这篇文章就是来回答这个问题的。不讲概念，讲原理。不讲未来，讲现在能落地的东西。</p>
+<hr>
+<h2>一、Auracast不是"升级版蓝牙"，是一个新物种</h2>
+<p>先说清楚最核心的认知偏差。</p>
+<p>传统蓝牙音频做了二十年，底层的逻辑从来没变过：<strong>点对点连接。</strong> 手机和耳机之间建立一条专属链路，数据在这条链路上双向传输。断开就要重连，换设备就要重新配对。</p>
+<p>Auracast做的不是"更稳定的连接"，而是<strong>根本不需要连接。</strong></p>
+<p>它的底层逻辑是广播：一个发射器把音频信号发射出去，不限数量的接收器同时收听。就像收音机——电台在广播，你打开收音机就能听，不需要先跟电台"配对"。</p>
+<p>这个区别听起来简单，但它的商业含义是决定性的：</p>
+<table class="data-table">
+<thead><tr>
+<th>传统蓝牙（连接模式）</th>
+<th>Auracast（广播模式）</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>手机和耳机之间有一条专属链路</td>
+<td>发射器广播，接收器收听，没有专属关系</td>
+</tr>
+<tr>
+<td>断连需要重连</td>
+<td>走进覆盖范围自动恢复</td>
+</tr>
+<tr>
+<td>换设备要重新配对</td>
+<td>任何接收器都可以随时加入</td>
+</tr>
+<tr>
+<td>能连的设备数量受协议栈限制</td>
+<td>理论上无限</td>
+</tr>
+<tr>
+<td>适合"一个人用"的场景</td>
+<td>适合"一群人共享"和"公共场所"的场景</td>
+</tr>
+</tbody>
+</table>
+<ul>
+</ul>
+<hr>
+<h2>二、三角色架构：发射器、接收器、助手</h2>
+<p>Auracast系统由三个角色组成：</p>
+<ul>
+</ul>
+<p>举个例子：杰理芯片原厂的「杰理之家」APP，已经实现了完整的Auracast助手功能——扫描附近广播、展示可用列表、一键让耳机或音箱加入。这套APP非常成熟，意味着用杰理方案的客户不需要从零开发助手应用，拿来就能用。</p>
+<img src="配图/「杰理之家」APP用户界面.jpg" alt="杰理之家APP" style="max-width:100%;border-radius:8px;margin:1em 0">
+<p>这三个角色可以跑在不同的设备上，也可以合并。一部手机可以同时当发射器和助手——你打开一个App广播音乐，同时App帮你管理哪些耳机在收听。</p>
+<img src="配图/02-architecture.png" alt="三角色架构" style="max-width:100%;border-radius:8px;margin:1em 0">
+<hr>
+<h2>三、技术栈：这一套协议是怎么工作的</h2>
+<p>Auracast底层依赖蓝牙LE Audio的技术栈。不深入协议细节，讲清楚三个关键层：</p>
+<h3>3.1 LC3编解码器——延迟和音质的革命</h3>
+<p>传统蓝牙用SBC编码，两个致命问题：延迟高（约200毫秒），音质损耗大。</p>
+<p>LC3（Low Complexity Communication Codec）是Fraunhofer和Ericsson联合开发的。同等音质下，所需码率只有SBC的一半。编解码算法延迟仅20到30毫秒，端到端延迟约40到80毫秒——相比SBC的200毫秒以上，人耳几乎感觉不到延迟。对视频同步、游戏、辅听场景来说，这是质的飞跃。</p>
+<p>采样率覆盖8kHz到48kHz的全范围。帧长7.5毫秒或10毫秒可配。用MDCT（改进离散余弦变换）加心理声学频谱噪声整形——技术细节不展开，你只需要知道：<strong>它用SBC一半的带宽，做到了更好的音质。</strong></p>
+<h3>3.2 BIS广播等时流——广播是怎么传的</h3>
+<p>这是Auracast的传输基础。在链路层，发射器创建一个BIG（广播等时组）。一个BIG里可以包含多个BIS（广播等时流）——立体声通常在同一个BIS内传输（左右声道已在编码层复用），多个BIS则用于承载不同语言音轨，让听众自选中文、英文、日文等频道。</p>
+<p>接收器扫描到BIG后，同步到发射器的时钟，然后按预定间隔接收数据包。因为是单向广播，没有确认重传机制——但如果某帧丢了，LC3内置的PLC（丢包隐藏）算法可以平滑过渡，人耳听不出来。</p>
+<p>一个BIG可以同时承载多个BIS，这是Auracast可以同时广播多种语言、多个音轨的技术基础。</p>
+<h3>3.3 PBP公共同广播配置文件——让所有人都能"搜到"</h3>
+<p>PBP（Public Broadcast Profile）定义了公共场所广播的发现和接入标准。</p>
+<p>发射器通过扩展广告数据（Extended Advertising）通告广播的存在和元数据——节目名、语言、编解码配置。接收器扫描到这些广告后，解析出可用广播列表。助手App把列表展示给用户。用户点一下，助手通过BASS写入控制点，接收器开始同步。</p>
+<p>整个过程不需要配对，不需要下载App（如果设备原生支持），不需要输入密码。像连WiFi一样，搜到、点一下、连上。</p>
+<hr>
+<h2>四、三个场景，三种商业逻辑</h2>
+<h3>场景一：公共场所</h3>
+<p>机场、火车站、博物馆、健身房、体育酒吧。一台发射器覆盖一个区域，所有旅客/访客用自己的耳机或助听器接入。无需布线、无需功放、无需专用接收器。</p>
+<p>法兰克福机场2026年1月全球首发，两个登机口试运行。核心驱动力不是"科技感"，是无障碍法规——欧盟要求公共场所必须为听障者提供辅助听力方案。Auracast比传统磁感线圈便宜一个数量级，而且提供立体声。</p>
+<h3>场景二：个人共享</h3>
+<p>一部手机广播音乐，朋友们各自戴耳机同时听。电视广播音频，全家人各自用耳机同步收听，音量自己调。这是消费电子品牌最感兴趣的卖点——"一对多广播"比"音质升级"好讲一百倍。</p>
+<p>声阔Boom Go 3i、三星、JBL等品牌的新品都已经按照这个逻辑在做了。这些Auracast产品背后，核心的蓝牙音频芯片来自杰理科技这样的芯片原厂。</p>
+<h3>场景三：辅听与无障碍</h3>
+<p>这是最大的增量市场。全球15亿人存在不同程度的听力损失。传统方案是磁感线圈——只能单声道、必须坐在指定区域、部署成本高。Auracast直接向支持LE Audio的助听器传送立体声。听障者和普通人用同一种方式接入，不需要"特殊待遇"。</p>
+<p>GN 集团旗下 ReSound，以及美国助听器厂商 Starkey，已经推出支持 Bluetooth LE Audio / Auracast 的助听器产品。索诺瓦旗下峰力 Phonak 也已在新平台中强调 Auracast-ready 的硬件基础。</p>
+<p>这是一个信号：助听器行业正在从 MFi、ASHA、2.4GHz 私有协议和感应环等分散方案，逐步转向 Bluetooth LE Audio / Auracast 这样的开放标准。</p>
+<img src="配图/03-scenarios.png" alt="应用场景" style="max-width:100%;border-radius:8px;margin:1em 0">
+<hr>
+<h2>五、硬件门槛：不是所有蓝牙设备都能升级</h2>
+<p>这是做产品的人最需要搞清楚的一件事。</p>
+<ul>
+</ul>
+<p>也就是说，能不能支持 Auracast，关键不看蓝牙版本号，看芯片控制器的硬件能力。蓝牙 5.2 之前的老芯片——控制器没有等时通道，永远无法通过固件升级支持。蓝牙 5.2 及之后的芯片——如果控制器硬件到位，是可以通过固件升级支持 Auracast 接收的。所以不是"所有存量设备都不能升"，而是"要看芯片硬件"。但一个现实是：市面上存量最大的那些设备，芯片大多在 5.2 之前。</p>
+<p>这意味着一个确定的硬件更新周期：从2026年开始，未来五到八年内，全球几十亿台蓝牙音频设备面临换代。据蓝牙技术联盟引用ABI Research数据，2024-2028年LE Audio设备累计出货预计约94亿台，2028年年出货约30亿台。</p>
+<ul>
+</ul>
+<hr>
+<h2>六、佳联芯的芯片方案</h2>
+<p>讲完原理，讲落地的。</p>
+<p>杰理科技是全球蓝牙音频芯片出货量最大的供应商，TWS耳机芯片全球市占率约40%，近三年累计出货超过52亿颗。709X、698X、710X、210X系列芯片已原生支持标准 LE Audio 和 Auracast 广播——涵盖发射端和接收端的完整方案。</p>
+<img src="配图/04-chip.png" alt="芯片方案" style="max-width:100%;border-radius:8px;margin:1em 0">
+<p>佳联芯作为杰理核心合作伙伴，专业、专注、专一，杰理方案16年。</p>
+<p>目前可以落地的Auracast方案：</p>
+<ul>
+  <li><strong>S....core</strong>：Auracast广播音箱PCBA方案，基于杰理JL7094A芯片。支持发射和接收双模式。已批量量产验证。</li>
+  <li><strong>BOX-89</strong>：经典蓝牙音箱PCBA方案，可与Auracast方案互为补充。</li>
+  <li><strong>TWS耳机方案</strong>：基于杰理JL709N/JL710N系列，支持LE Audio接收。</li>
+  <li><strong>定制方案</strong>：根据产品形态（便携音箱、桌面音箱、耳机、发射器）定制PCBA和固件。</li>
+</ul>
+<p>从需求沟通到样机交付，快速响应。从小批量到量产，全程一站搞定。这是我们在这个行业做了15年攒下来的东西。</p>
+<hr>
+<h2>七、现在该不该上Auracast？</h2>
+<p>分三种情况：</p>
+<ul>
+</ul>
+<hr>
+<h2>写在最后</h2>
+<p>Auracast不是一个"功能升级"，它是一个"品类切换"。从连接模式切换到广播模式，音频产品的使用场景、用户习惯、竞争维度都会变。</p>
+<p>那些还在讨论"音质参数"的品牌，和已经在打"一对多广播"的品牌，讲的根本不是同一个故事。</p>
+<p>而所有这些故事，都建在一颗支持Auracast的蓝牙芯片上。</p>
+<ul>
+</ul>
+<hr>
+<p>\#Auracast \#LEAudio \#蓝牙音频 \#LC3 \#杰理科技 \#佳联芯 \#蓝牙芯片 \#PCBA方案 \#广播音频</p>
+<ul>
+</ul>
+<hr>
+<p><strong>作者：佳联芯科技</strong> | 专注·专业·专一，杰理16年  <br>
+过往项目覆盖音频、移动电源与跨境品牌渠道，具体案例以客户授权披露为准。  <br>
+商务合作：大刘 13425156769 | 0755-27780662 | liuhang@bestlinkchip.com | 深圳宝安西乡</p>
+
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>深圳佳联芯科技有限公司 | Shenzhen Best Link Chip Technology Co., Ltd.</p>
+    <p>📞 0755-27780662 | 📧 liuhang@bestlinkchip.com | 🌐 bestlinkchip.com</p>
+  </div>
+</footer>
+</body>
+</html>
