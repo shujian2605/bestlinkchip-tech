@@ -1,0 +1,70 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1a1a2e; line-height: 1.7; background: #f8f9fb; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 18px 0; position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 22px; font-weight: 800; color: #0066cc; }
+.logo small { font-size: 13px; font-weight: 400; color: #64748b; display: block; }
+.logo-icon { margin-right: 6px; }
+nav a { color: #475569; text-decoration: none; margin-left: 28px; font-size: 15px; font-weight: 500; }
+nav a:hover { color: #0066cc; }
+
+.hero { background: linear-gradient(135deg, #0a1628 0%, #1a2744 100%); color: #fff; padding: 80px 0 60px; text-align: center; }
+.hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 18px; }
+.hero .highlight { color: #4da6ff; }
+.hero-sub { font-size: 17px; color: #94a3b8; margin-bottom: 32px; line-height: 1.8; }
+.hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-primary { background: #0066cc; color: #fff; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; }
+.btn-primary:hover { background: #0052a3; }
+.btn-secondary { background: rgba(255,255,255,0.1); color: #fff; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid rgba(255,255,255,0.2); }
+.btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+section { padding: 60px 0; }
+h2 { font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 40px; color: #0f172a; }
+
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.service-card { background: #fff; padding: 28px; border-radius: 10px; border: 1px solid #e2e8f0; }
+.service-card h3 { font-size: 20px; margin-bottom: 14px; color: #0066cc; }
+.service-card ul { list-style: none; }
+.service-card li { padding: 5px 0; font-size: 14px; color: #475569; }
+.service-card li::before { content: "✓ "; color: #0066cc; font-weight: bold; }
+
+.brands { background: #fff; }
+.brand-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 32px; }
+.brand-grid span { font-size: 18px; font-weight: 700; color: #334155; }
+
+.why-us { background: #f1f5f9; }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.why-item { background: #fff; padding: 24px; text-align: center; border-radius: 8px; font-size: 15px; color: #475569; border: 1px solid #e2e8f0; }
+.why-item strong { display: block; font-size: 28px; color: #0066cc; margin-bottom: 4px; }
+
+footer { background: #0a1628; color: #94a3b8; text-align: center; padding: 32px 0; font-size: 13px; line-height: 2; }
+
+/* Blog */
+.article-card { background: #fff; padding: 28px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 20px; }
+.article-card h3 { font-size: 20px; margin-bottom: 8px; }
+.article-card h3 a { color: #0f172a; text-decoration: none; }
+.article-card h3 a:hover { color: #0066cc; }
+.article-card .meta { font-size: 13px; color: #94a3b8; margin-bottom: 10px; }
+.article-card p { color: #475569; font-size: 14px; }
+
+article { background: #fff; padding: 40px; border-radius: 10px; border: 1px solid #e2e8f0; max-width: 800px; margin: 0 auto; }
+article h1 { font-size: 30px; margin-bottom: 16px; }
+article h2 { font-size: 22px; margin: 30px 0 14px; text-align: left; }
+article p { margin-bottom: 14px; color: #334155; }
+article .meta { font-size: 13px; color: #94a3b8; margin-bottom: 24px; }
+
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.contact-card { background: #fff; padding: 28px; border-radius: 10px; border: 1px solid #e2e8f0; text-align: center; }
+.contact-card .icon { font-size: 32px; margin-bottom: 12px; }
+.contact-card h3 { font-size: 18px; margin-bottom: 8px; }
+.contact-card p { color: #475569; font-size: 14px; }
+
+@media (max-width: 768px) {
+  header .container { flex-direction: column; gap: 12px; }
+  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
+  nav a { margin-left: 0; font-size: 13px; }
+  .hero h1 { font-size: 26px; }
+  .hero-sub { font-size: 14px; }
+}
